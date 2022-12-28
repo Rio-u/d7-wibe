@@ -1,0 +1,435 @@
+<html>
+<head>
+  <link rel="stylesheet" type="text/css" href="d72.css">
+</head>
+  <div class="blue-bar">
+    <a href="C:\Users\d7\Desktop\d7\dontcopy\dontcopy.html">
+      <img src="C:\Users\d7\Desktop\d7\photo\d7.png" class="D7no" style="border-radius: 50%; width: 80px; height: 80px;">
+      <a href="https://www.instagram.com/8aey/">
+        <img src="C:\Users\d7\Desktop\d7\photo\instagram.png" class="instagram-icon"  style="right: 20cm; width: 40px; height: 40px;  top: 15%;     border: none;">
+        <a href="https://discord.gg/xb">
+          <img src="C:\Users\d7\Desktop\d7\photo\discord.png" class="discord"  style="right: 15cm; width: 40px; height: 40px;  top: 15%;     border: none;">
+          <a href="https://wa.me/qr/2UWI37PRNHG6G1">
+            <img src="C:\Users\d7\Desktop\d7\photo\whatsapp.png" class="whatsapp"  style="right: 10cm; width: 40px; height: 40px;  top: 15%;     border: none;">
+    </a>
+    <a href="C:\Users\d7\Desktop\d7\login\login.html">
+      <button class="Login">Login</button>
+    </a>
+    <a href="C:\Users\d7\Desktop\d7\sign in\sign in.html">
+      <button class="signin">Sign in</button>
+    </a>
+  </div>
+</body>
+<header>
+<a href="#list"></a>
+</header>
+<section class="d7ifo">
+  <div>
+<h1>Hello Sir, <br><span>Good Day For You.</span></h1>
+<img src="C:\Users\d7\Desktop\d7\photo\logo.webp" class="logo">
+<a href="#list" class="List-b" onclick="window.location.href='#list'">My List</a>
+  </div>
+</section>
+
+
+
+
+<section class="list" id="list">
+
+  <h2 class="title">Your List</h2>
+  <div class="playlist-card">
+    <div class="list-image">
+      <img src="C:\Users\d7\Desktop\d7\photo\maro.jpg" />
+      <strong class="card-text">
+        <span>EL 8OLAF x OZOR</span>
+        </strong>
+      <button class="Play" onclick="playAudio()">Play</button>
+      <button class="Stop" onclick="stopAudio()">Stop</button>
+      <input type="range" min="0" max="1" step="0.1" value="1" id="volume" class="Vol">
+      <label for="volume" class="volum">Volume</label>
+      <div id="time" class="Time0">0:00</div>
+      <div class="Time0">Time</div>
+      <input type="range" min="0" max="100" value="0" id="progress" class="range">
+    </div>
+  </div>
+
+
+
+  <audio id="audio">
+    <source src="EL 8OLAF x OZOR.mp3" type="audio/mpeg">
+  </audio>
+
+  <script>
+    var audio = document.getElementById("audio");
+    var playing = false;
+    var timeDiv = document.getElementById("time");
+    var progressBar = document.getElementById("progress");
+
+    function playAudio() {
+      if (playing) {
+        audio.pause();
+        playing = false;
+      } else {
+        audio.play();
+        playing = true;
+      }
+    }
+    
+
+    function stopAudio() {
+      audio.pause();
+      audio.currentTime = 0;
+      playing = false;
+      updateTime();
+      progressBar.value = 0;
+    }
+
+    function updateTime() {
+      var minutes = Math.floor(audio.currentTime / 60);
+      var seconds = Math.floor(audio.currentTime % 60);
+      if (seconds < 10) {
+        seconds = "0" + seconds;
+      }
+      timeDiv.innerHTML = minutes + ":" + seconds;
+      progressBar.value = (audio.currentTime / audio.duration) * 100;
+    }
+
+    audio.ontimeupdate = updateTime;
+
+    var volumeSlider = document.getElementById("volume");
+    volumeSlider.oninput = function() {
+      audio.volume = this.value;
+    }
+
+    progressBar.oninput = function() {
+      audio.currentTime = (this.value / 100) * audio.duration;
+    }
+
+  </script>
+
+
+
+
+
+
+
+  <div class="playlist-card2">
+    <div class="list-image">
+      <img src="C:\Users\d7\Desktop\d7\photo\ciro.png" />
+      <strong class="card2-text">
+      <span>Basrah w Atooh</span>
+      </strong>
+      <button class="modified-Play" onclick="playModifiedAudio()">Play</button>
+      <button class="modified-Stop" onclick="stopModifiedAudio()">Stop</button>
+      <input type="range" min="0" max="1" step="0.1" value="1" id="modified-volume" class="modified-Vol">
+      <label for="modified-volume" class="modified-volum">Volume</label>
+      <div id="modified-time" class="modified-Time0">0:00</div>
+      <div class="modified-Time0">Time</div>
+      <input type="range" min="0" max="100" value="0" id="modified-progress" class="range2">
+    </div>
+  </div>
+
+
+
+  <audio id="modified-audio">
+    <source src="Basrah w Atooh.mp3" type="audio/mpeg">
+  </audio>
+
+  <script>
+    var modifiedAudio = document.getElementById("modified-audio");
+    var modifiedPlaying = false;
+    var modifiedTimeDiv = document.getElementById("modified-time");
+    var modifiedProgressBar = document.getElementById("modified-progress");
+
+    function playModifiedAudio() {
+      if (modifiedPlaying) {
+        modifiedAudio.pause();
+        modifiedPlaying = false;
+      } else {
+        modifiedAudio.play();
+        modifiedPlaying = true;
+      }
+    }
+    
+
+    function stopModifiedAudio() {
+      modifiedAudio.pause();
+      modifiedAudio.currentTime = 0;
+      modifiedPlaying = false;
+      updateModifiedTime();
+      modifiedProgressBar.value = 0;
+    }
+
+    function updateModifiedTime() {
+      var modifiedMinutes = Math.floor(modifiedAudio.currentTime / 60);
+      var modifiedSeconds = Math.floor(modifiedAudio.currentTime % 60);
+      if (modifiedSeconds < 10) {
+        modifiedSeconds = "0" + modifiedSeconds;
+      }
+      modifiedTimeDiv.innerHTML = modifiedMinutes + ":" + modifiedSeconds;
+      modifiedProgressBar.value = (modifiedAudio.currentTime / modifiedAudio.duration) * 100;
+    }
+
+    modifiedAudio.ontimeupdate = updateModifiedTime;
+
+    var modifiedVolumeSlider = document.getElementById("modified-volume");
+    modifiedVolumeSlider.oninput = function() {
+      modifiedAudio.volume = this.value;
+    }
+
+    modifiedProgressBar.oninput = function() {
+      modifiedAudio.currentTime = (this.value / 100) * modifiedAudio.duration;
+    }
+
+  </script>
+
+
+<div class="playlist-card3">
+  <div class="list-image">
+    <img src="C:\Users\d7\Desktop\d7\photo\santa.png" />
+    <strong class="card3-text">
+    <span>Ahmed Santa</span>
+    </strong>
+    <button class="modified2-Play" onclick="playModified2Audio()">Play</button>
+    <button class="modified2-Stop" onclick="stopModified2Audio()">Stop</button>
+    <input type="range" min="0" max="1" step="0.1" value="1" id="modified2-volume" class="modified2-Vol">
+    <label for="modified2-volume" class="modified2-volum">Volume</label>
+    <div id="modified2-time" class="modified2-Time0">0:00</div>
+    <div class="modified2-Time0">Time</div>
+    <input type="range" min="0" max="100" value="0" id="modified2-progress" class="range3">
+  </div>
+</div>
+
+
+
+<audio id="modified2-audio">
+  <source src="Ahmed Santa - Ahmed Santa (Official Music Video) .mp3" type="audio/mpeg">
+</audio>
+
+<script>
+  var modified2Audio = document.getElementById("modified2-audio");
+  var modified2Playing = false;
+  var modified2TimeDiv = document.getElementById("modified2-time");
+  var modified2ProgressBar = document.getElementById("modified2-progress");
+
+  function playModified2Audio() {
+    if (modified2Playing) {
+      modified2Audio.pause();
+      modified2Playing = false;
+    } else {
+      modified2Audio.play();
+      modified2Playing = true;
+    }
+  }
+  
+
+  function stopModified2Audio() {
+    modified2Audio.pause();
+    modified2Audio.currentTime = 0;
+    modified2Playing = false;
+    updateModified2Time();
+    modified2ProgressBar.value = 0;
+  }
+
+  function updateModified2Time() {
+    var modified2Minutes = Math.floor(modified2Audio.currentTime / 60);
+    var modified2Seconds = Math.floor(modified2Audio.currentTime % 60);
+    if (modified2Seconds < 10) {
+      modified2Seconds = "0" + modified2Seconds;
+    }
+    modified2TimeDiv.innerHTML = modified2Minutes + ":" + modified2Seconds;
+    modified2ProgressBar.value = (modified2Audio.currentTime / modified2Audio.duration) * 100;
+  }
+
+  modified2Audio.ontimeupdate = updateModified2Time;
+
+  var modified2VolumeSlider = document.getElementById("modified2-volume");
+    modified2VolumeSlider.oninput = function() {
+      modified2Audio.volume = this.value;
+    }
+
+    modified2ProgressBar.oninput = function() {
+      modified2Audio.currentTime = (this.value / 100) * modified2Audio.duration;
+    }
+
+
+    
+  </script>
+
+
+
+
+
+
+<div class="playlist-card4">
+  <div class="list-image">
+    <img src="C:\Users\d7\Desktop\d7\photo\sam.png" />
+    <strong class="card4-text">
+    <span>MOUSV Sam</span>
+    </strong>
+    <button class="modified3-Play" onclick="playModified3Audio()">Play</button>
+    <button class="modified3-Stop" onclick="stopModified3Audio()">Stop</button>
+    <input type="range" min="0" max="1" step="0.1" value="1" id="modified3-volume" class="modified2-Vol">
+    <label for="modified3-volume" class="modified3-volum">Volume</label>
+    <div id="modified3-time" class="modified3-Time0">0:00</div>
+    <div class="modified3-Time0">Time</div>
+    <input type="range" min="0" max="100" value="0" id="modified3-progress" class="range3">
+  </div>
+</div>
+
+
+
+<audio id="modified3-audio">
+  <source src="MOUSV - GHOYOUM.mp3" type="audio/mpeg">
+</audio>
+
+<script>
+  var modified3Audio = document.getElementById("modified3-audio");
+  var modified3Playing = false;
+  var modified3TimeDiv = document.getElementById("modified3-time");
+  var modified3ProgressBar = document.getElementById("modified3-progress");
+
+  function playModified3Audio() {
+    if (modified3Playing) {
+      modified3Audio.pause();
+      modified3Playing = false;
+    } else {
+      modified3Audio.play();
+      modified3Playing = true;
+    }
+  }
+  
+
+  function stopModified3Audio() {
+    modified3Audio.pause();
+    modified3Audio.currentTime = 0;
+    modified3Playing = false;
+    updateModified3Time();
+    modified3ProgressBar.value = 0;
+  }
+
+  function updateModified3Time() {
+    var modified3Minutes = Math.floor(modified3Audio.currentTime / 60);
+    var modified3Seconds = Math.floor(modified3Audio.currentTime % 60);
+    if (modified3Seconds < 10) {
+      modified3Seconds = "0" + modified3Seconds;
+    }
+    modified3TimeDiv.innerHTML = modified3Minutes + ":" + modified3Seconds;
+    modified3ProgressBar.value = (modified3Audio.currentTime / modified3Audio.duration) * 100;
+  }
+
+  modified3Audio.ontimeupdate = updateModified3Time;
+
+  var modified3VolumeSlider = document.getElementById("modified3-volume");
+    modified3VolumeSlider.oninput = function() {
+      modified3Audio.volume = this.value;
+    }
+
+    modified3ProgressBar.oninput = function() {
+      modified3Audio.currentTime = (this.value / 100) * modified3Audio.duration;
+    }
+
+
+
+
+
+
+
+    
+  </script>
+
+
+
+
+<div class="playlist-card5">
+  <div class="list-image">
+    <img src="C:\Users\d7\Desktop\d7\photo\mohab.png" />
+    <strong class="card4-text">
+    <span>MoHab Dede</span>
+    </strong>
+    <button class="modified4-Play" onclick="playModified4Audio()">Play</button>
+    <button class="modified4-Stop" onclick="stopModified4Audio()">Stop</button>
+    <input type="range" min="0" max="1" step="0.1" value="1" id="modified4-volume" class="modified2-Vol">
+    <label for="modified4-volume" class="modified4-volum">Volume</label>
+    <div id="modified4-time" class="modified4-Time0">0:00</div>
+    <div class="modified4-Time0">Time</div>
+    <input type="range" min="0" max="100" value="0" id="modified4-progress" class="range4">
+  </div>
+</div>
+
+
+
+<audio id="modified4-audio">
+  <source src="Dede (Freestyle).mp3" type="audio/mpeg">
+</audio>
+
+<script>
+  var modified4Audio = document.getElementById("modified4-audio");
+  var modified4Playing = false;
+  var modified4TimeDiv = document.getElementById("modified4-time");
+  var modified4ProgressBar = document.getElementById("modified4-progress");
+
+  function playModified4Audio() {
+    if (modified4Playing) {
+      modified4Audio.pause();
+      modified4Playing = false;
+    } else {
+      modified4Audio.play();
+      modified4Playing = true;
+    }
+  }
+  
+
+  function stopModified4Audio() {
+    modified4Audio.pause();
+    modified4Audio.currentTime = 0;
+    modified4Playing = false;
+    updateModified4Time();
+    modified4ProgressBar.value = 0;
+  }
+
+  function updateModified4Time() {
+    var modified4Minutes = Math.floor(modified4Audio.currentTime / 60);
+    var modified4Seconds = Math.floor(modified4Audio.currentTime % 60);
+    if (modified4Seconds < 10) {
+      modified4Seconds = "0" + modified4Seconds;
+    }
+    modified4TimeDiv.innerHTML = modified4Minutes + ":" + modified4Seconds;
+    modified4ProgressBar.value = (modified4Audio.currentTime / modified4Audio.duration) * 100;
+  }
+
+  modified4Audio.ontimeupdate = updateModified4Time;
+
+  var modified4VolumeSlider = document.getElementById("modified4-volume");
+    modified4VolumeSlider.oninput = function() {
+      modified4Audio.volume = this.value;
+    }
+
+    modified4ProgressBar.oninput = function() {
+      modified4Audio.currentTime = (this.value / 100) * modified4Audio.duration;
+    }
+
+
+
+
+
+
+
+    
+  </script>
+
+
+
+</section>
+
+
+<footer class="footer">
+
+<p class="title-fot">Copyrights @<span>D7 & Bassam & Ahmed</span></p>
+
+    </a>
+</footer>
+
+
+</body>
+</html>
